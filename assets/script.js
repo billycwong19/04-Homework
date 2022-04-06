@@ -198,7 +198,7 @@ function init(){
 
     startContainer.setAttribute("style","display: initial;")
     questionsContainer.setAttribute("style","display: none;")
-    // form.setAttribute("style","display: none;")
+    form.setAttribute("style","display: none;")
     highScores.setAttribute("style","display: none;")
     score.setAttribute("style","display: none;")
     result.setAttribute("style","display: none;")
