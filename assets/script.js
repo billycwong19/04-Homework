@@ -26,6 +26,9 @@ var wrong = 0;
 // these become my iterators for questions and answers
 var x = 0;
 var i = 0; 
+localStorage.setItem("oldScore", "0");
+
+
 // these are the questions and answers stored in an object
 var questionsAndAnswers = [
     {
@@ -149,6 +152,8 @@ function setTime() {
 }
 // hides questionsContainer and stores score in the local storage. then retrieves the newScore to compare to the Old Score which is the previous high score. 
 function displayScore() {
+    secondsLeft = 0
+    time.textContent = 0
     startContainer.setAttribute("style","display: none;")
     questionsContainer.setAttribute("style","display: none;")
     score.setAttribute("style","margin-top: 100px;")
@@ -168,10 +173,14 @@ function displayScore() {
 // displays a form if the newScore is greater than the oldScore
 function newHighScore(){
     form.setAttribute("style","display: initial;");
-}
+    submitBtn.addEventListener("click", function(event){
+        event.preventDefault;
+    if (event){
+        createScoreList();
+}})};
+
 // adds an li item with initial and score to the highScores list
-function createScoreList(event){
-    event.preventDefault;
+function createScoreList(){
     var listItem = document.createElement('LI');
     listItem.textContent = "Initials: " + initials.value + " | Score: " + JSON.parse(localStorage.getItem("newScore"));
     highScores.insertBefore(listItem, highScores.firstChild)
@@ -196,6 +205,7 @@ function init(){
     secondsLeft = 30;
     correct.textContent = right;
     incorrect.textContent = wrong;
+    initials.value = "";
 
     startContainer.setAttribute("style","display: initial;")
     questionsContainer.setAttribute("style","display: none;")
@@ -204,6 +214,7 @@ function init(){
     score.setAttribute("style","display: none;")
     result.setAttribute("style","display: none;")
     restart.textContent = "Restart"
+    
 }
 
 init();
@@ -213,4 +224,3 @@ startBtn.addEventListener("click", setTime)
 answersList.addEventListener("click", comparing)
 highScorePage.addEventListener("click", displayHighScores)
 restart.addEventListener("click", init)
-submitBtn.addEventListener("click", createScoreList)
