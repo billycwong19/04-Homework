@@ -49,8 +49,7 @@ form {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    text-align: center;
-    width: 30vw;
+    width: min-content;
     padding-bottom: 200px;
 }
 form h2 {
@@ -59,7 +58,7 @@ form h2 {
 form h3{
     width: 100%;
 }
-form input {
+form button {
     text-align: center;
     width: 100%;
 }

@@ -15,7 +15,7 @@ var correct = document.querySelector(".correct");
 var incorrect = document.querySelector(".incorrect")
 var restart = document.querySelector(".restart")
 var time = document.querySelector(".time")
-var form = document.querySelector("form")
+var form = document.querySelector(".form")
 var initials = document.querySelector("#initials")
 var submitBtn = document.querySelector("#submitBtn");
 var highScorePage = document.querySelector(".highScorePage")
@@ -38,48 +38,48 @@ var questionsAndAnswers = [
     "c": "Coding",
     "d": "All of the above"},
     {
-    "question": "What is the difference between me and you?",
-    "a": "You have hair",
-    "b": "I dont",
-    "c": "This one's wrong",
-    "d": "Click this one!"},
+    "question": "What is the difference 22 51?",
+    "a": "26",
+    "b": "27",
+    "c": "28",
+    "d": "29"},
     // "correct": "d"},
     {
-    "question": "Who is your favorite singer?",
+    "question": "Who sang on the song 'I Feel Love'?",
     "a": "Madonna",
     "b": "Whitney Houston",
     "c": "Lady Gaga",
     "d": "Donna Summer"},
     {
-    "question": "Who is your favorite singer?",
-    "a": "Madonna",
-    "b": "Whitney Houston",
-    "c": "Lady Gaga",
-    "d": "Donna Summer"},
+    "question": "In blackjack, what's the preffered move if you draw 11?",
+    "a": "Split",
+    "b": "Hit",
+    "c": "Double down",
+    "d": "Fold"},
     {
-    "question": "Who is your favorite singer?",
-    "a": "Madonna",
-    "b": "Whitney Houston",
-    "c": "Lady Gaga",
-    "d": "Donna Summer"},
+    "question": "What is the frequency of the not A4",
+    "a": "432Hz",
+    "b": "400Hz",
+    "c": "440Hz",
+    "d": "420Hz"},
     {
-    "question": "I knew she was your favorite.",
-    "a": "Ya you know me so well!",
-    "b": "She's really not...",
-    "c": "UGH!",
-    "d": "So, who's your favorite?"},
+    "question": "Whats 1230 divided by 16?",
+    "a": "76",
+    "b": "76.1",
+    "c": "76.875",
+    "d": "76"},
     {
-    "question": "BACK! to the questions. Who is the current Prime Minister of Finland",
+    "question": "Who is the current Prime Minister of Finland",
     "a": "Jean Castex",
     "b": "Imran Khan",
     "c": "Sanna Marin",
     "d": "Scott Morrison"},
     {
-    "question": "LOL! OKay, what year is it?",
-    "a": "2020",
-    "b": "2021",
-    "c": "2022",
-    "d": "2023"},
+    "question": "Which company rose to fame as a meme stock in early of 2021?",
+    "a": "Nokia",
+    "b": "BlackBerry",
+    "c": "GameStop",
+    "d": "AMC"},
     {
     "question": "What is a peanut?",
     "a": "Seed",
@@ -170,14 +170,12 @@ function displayScore() {
         restart.textContent = "Play again?"
     }
 }
+
 // displays a form if the newScore is greater than the oldScore
 function newHighScore(){
+    submitBtn.setAttribute("style", "width: 50%; text-align: center;")
     form.setAttribute("style","display: initial;");
-    submitBtn.addEventListener("click", function(event){
-        event.preventDefault;
-    if (event){
-        createScoreList();
-}})};
+}
 
 // adds an li item with initial and score to the highScores list
 function createScoreList(){
@@ -187,8 +185,11 @@ function createScoreList(){
     console.log(listItem.textContent)
     displayHighScores();
 }
+
 // displays high scores!
 function displayHighScores(){
+    form.addEventListener("submit", function(event){
+        event.preventDefault;});
     highScores.setAttribute("style","display: initial;")
     startContainer.setAttribute("style","display: none;")
     questionsContainer.setAttribute("style","display: none;")
@@ -222,5 +223,6 @@ init();
 startBtn.addEventListener("click", startGame)
 startBtn.addEventListener("click", setTime)
 answersList.addEventListener("click", comparing)
+submitBtn.addEventListener("click", createScoreList)
 highScorePage.addEventListener("click", displayHighScores)
 restart.addEventListener("click", init)
