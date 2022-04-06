@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Time</title>
+    <link rel="stylesheet" href="./assets/reset.css">
+    <link rel="stylesheet" href="./assets/style.css">
+</head>
+<body>
+    <a href="#" class="highScorePage">Higher Scores Than Yours</a>
+    <div class="score">
+        <h5>Correct:<span class=correct></span></h5>
+        <h5>Incorrect:<span class=incorrect></span></h5>
+        <h5>Time: <span class="time"></span></h5>
+    </div>
+    <main>
+        <div class="startContainer">
+            <h1 class="startHeader">Coding Quiz Challenge!</h1>
+            <h2 class="prompts">Take this quiz to see how smart you really are!</h2>
+            <button class="startBtn">Begin Quiz</button>
+        </div>
+    <div class="container">
+        <h2 class="question"></h2>
+            <div class="answersList">
+                <button class="answerA" data-right=""></button>
+                <button class="answerB" data-right=""></button>
+                <button class="answerC" data-right="right"></button>
+                <button class="answerD" data-right=""></button>
+            </div>
+    </div>
+    <form>
+        <h2>NEW HIGH SCORE</h2>
+        <h3>Enter Your Initials!</h3>
+        <input type="text" maxlength="3" id="initials">
+        <input type="submit" id="submitBtn">
+    </form>
+    <div>
+        <p class="result"></p>
+    </div>
+    <div>
+        <ol class="highScores">
+
+        </ol>
+    </div>
+    </main>
+    
+    <a href="#" class="restart">Restart</a>
+    <script src="./assets/script.js"></script>
+</body>
+</html>
